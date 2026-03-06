@@ -66,12 +66,11 @@ UML_Diagram.png (or UML_Diagram.pdf)
 
 ## 🧩 Step 1 — Choose Your Dataset
 
-**Dataset Name:**  
-**Source / Link:**  
+**WorldIndicators2000**  
+**https://www.google.com/url?q=https://runestone.academy/ns/books/published/csawesome2/external/_static/datasets/WorldIndicators2000.csv&sa=D&source=editors&ust=1770745840323544&usg=AOvVaw3rBtD5dOE5pBEs56A48ONh **  
 
 **What this dataset contains (2–3 sentences):**  
-____________________________________________________________________  
-____________________________________________________________________  
+For our purposes, it contains country name, birth rate, and life expectancy, as well as other variables, but ones we're not using.  
 
 ---
 
@@ -80,8 +79,7 @@ ____________________________________________________________________
 Your guiding question should be something you can answer using your dataset.
 
 **My guiding question:**  
-____________________________________________________________________  
-____________________________________________________________________  
+What is the correlation between countries and birth rate?  
 
 Examples:
 
@@ -126,9 +124,9 @@ In `Main.java`, you must:
 
 | Attribute Name | CSV Column Name | Column Index # | Notes |
 |----------------|------------------|----------------|-------|
-|                |                  |                |       |
-|                |                  |                |       |
-|                |                  |                |       |
+| countryName    |                  | 0              |       |
+| birthRate      |                  | 2              |       |
+| lifeExpectancy |                  | 11             |       |
 
 ---
 

@@ -1,4 +1,6 @@
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
 
 /**
  * Main application for the Data Analysis Mini‑Project.
@@ -15,13 +17,14 @@ import java.io.File;
  */
 public class App {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
 
         // TODO: Update this with your CSV file path
-        File file = new File("data/your_dataset.csv");
+        File file = new File("WorldIndicators2000 (2).csv");
 
         // TODO: Create an array of Data objects to store data
-
+        CountryStat[] countryStats = new CountryStat[500]; // Assuming max 1000 rows
+        int count = 0;
 
         // TODO: Read file using Scanner
         // - Skip header if needed
@@ -30,24 +33,46 @@ public class App {
         // - Convert text to numbers when needed
         // - Create new Data objects
         // - Add to your array
+        Scanner scanner = new Scanner(file);
+        if (scanner.hasNextLine()) {
+            scanner.nextLine(); 
+        }
+        while (scanner.hasNextLine() && count < countryStats.length) {
+            String line = scanner.nextLine();
+            String[] parts = line.split(",");
+            
+            String country = parts[0].trim();
+            double birthRate = Double.parseDouble(parts[2].trim());
+            int lifeExpectancy = (int) Double.parseDouble(parts[11].trim());
 
+            countryStats[count] = new CountryStat(country, birthRate, lifeExpectancy);
+            count++;
+        }
+        scanner.close();
+    
+            // TODO: Call your analysis methods
+            // Example:
+            // double maxValue = findMaxValue(dataList);
+            // double average = computeAverageValue(dataList);
+            CountryStat highestBirthRateCountry = CountryStat.findMaxBirthRateCountry(countryStats, count);
+            double averageBirthRate = CountryStat.computeAverageBirthRate(countryStats, count);
 
-        // TODO: Call your analysis methods
-        // Example:
-        // double maxValue = findMaxValue(dataList);
-        // double average = computeAverageValue(dataList);
+    
+            // TODO: Print insights
+            // - Number of rows loaded
+            // - Min, max, average, or any other findings
+            // - Final answer to your guiding question
+            if (highestBirthRateCountry != null) {
+                System.out.println("The country with the highest birth rate is " + highestBirthRateCountry.getCountryName() + 
+                                   " with a rate of " + highestBirthRateCountry.getBirthRate());
+            }
+            
+            System.out.println("The data shows that " + highestBirthRateCountry.getCountryName() + 
+            " has the highest birth rate compared to the global average of " + averageBirthRate);
 
+        
+        }
 
-        // TODO: Print insights
-        // - Number of rows loaded
-        // - Min, max, average, or any other findings
-        // - Final answer to your guiding question
-
-
-        // OPTIONAL TODO:
-        // Add user interaction:
-        // Ask the user what kind of analysis they want to see
-    }
 
 
 }
