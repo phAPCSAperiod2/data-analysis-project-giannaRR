@@ -103,6 +103,17 @@ You must create a class that represents **one row** of your dataset.
 
 ### ✏ Include your class diagram
 
+- countryName : String
+- birthRate : double
+- lifeExpectancy : int
+-------------------------
++ CountryStat(name: String, birthRate: double, lifeExpectancy: int)
++ getCountryName() : String
++ getBirthRate() : double
++ getLifeExpectancy() : int
++ computeAverageBirthRate(stats: CountryStat[], count: int) : double
++ findMaxBirthRateCountry(stats: CountryStat[], count: int) : CountryStat
++ toString() : String
 
 ---
 
@@ -124,9 +135,9 @@ In `Main.java`, you must:
 
 | Attribute Name | CSV Column Name | Column Index # | Notes |
 |----------------|------------------|----------------|-------|
-| countryName    |                  | 0              |       |
-| birthRate      |                  | 2              |       |
-| lifeExpectancy |                  | 11             |       |
+| countryName    | Country Name     | 0              |       |
+| birthRate      | Birth Rate       | 2              |       |
+| lifeExpectancy | Life Expectancy  | 11             |       |
 
 ---
 
@@ -143,8 +154,8 @@ You must write **at least two algorithms** to analyze your dataset.
 
 **Algorithms I will implement:**
 
-1. __________________________________________  
-2. __________________________________________  
+1.  Average of attribute   
+2. Maximum value of attribute   
 
 Optional extras:  
 - Sorting  
@@ -163,13 +174,11 @@ After analyzing your objects, print:
 - ✔ A clear answer to your guiding question  
 
 **My findings:**  
-____________________________________________________________________  
-____________________________________________________________________  
-____________________________________________________________________  
+My code was able to inditify a specific researched country and connectthe averagte birth rate to life expectancy  
 
 **My answer to the guiding question:**  
-____________________________________________________________________  
-____________________________________________________________________  
+The data shows that birth rates vary significantly by country. There are certainly some outliers that skew the data, but 
+birth rate to life expectancy truly depends on country.  
 
 ---
 
@@ -216,10 +225,8 @@ Write a short reflection (3–5 sentences):
 - How trustworthy are your insights?
 
 **My reflection:**  
-____________________________________________________________________  
-____________________________________________________________________  
-____________________________________________________________________  
-____________________________________________________________________  
+An issue that I had was trying to call my .text file as it was giing me trouble with the specific name, I also think it was 
+a but confusing at first when using the parse method, but it stuly helps and is intresting.  
 
 ---
 
